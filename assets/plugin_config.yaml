@@ -1,0 +1,25 @@
+# This configuration file is necessary for constants used
+#  in the DynamicCraftPlugin
+
+urls:
+  test: true
+  uat: https://uat.craftsilicon.com
+  live: https://app.craftsilicon.com
+  tokenUrl: /ElmaAuthDynamicV3/api/auth/apps
+
+request:
+  trxSource: APP
+  versionNumber: 1
+  bankId: "0017"
+  appName: PrideUganda
+  country: UGANDATEST
+
+crypt:
+  staticEncryptKey: csXDRzpcEPm_jMny
+  staticEncryptIv: 84jfkfndl3ybdfkf
+  staticLogKeyValue: KBSB&er3bflx9%
+
+appProperties:
+  appLabel: Pride
+  appPrimaryColor: 41AE49
+  appSecondaryColor: F16225
