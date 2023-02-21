@@ -396,7 +396,7 @@ class _DashBoardState extends State<DashBoard> {
               ),
             ),
             body: SingleChildScrollView(
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -449,13 +449,15 @@ class _DashBoardState extends State<DashBoard> {
                             ],
                           )),
                       Container(
-                        // height: 70,
+                        // height: 161,
                         margin: const EdgeInsets.only(
-                            left: 18, right: 16, top: 150),
+                            left: 18, right: 16, top: 140),
                         child: Card(
+
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            // mainAxisSize: MainAxisSize.min,
+                            // crossAxisAlignment: CrossAxisAlignment.end,
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               FutureBuilder<List<BankAccount>>(
                                   future: _bankAccountRepository
@@ -466,7 +468,8 @@ class _DashBoardState extends State<DashBoard> {
                                     debugPrint('snapbank...${snapshot.data}');
 
                                     if (snapshot.hasData) {
-                                      return ListView.separated(
+                                      return ListView.builder(
+                                        padding: EdgeInsets.only(bottom: 27),
                                         shrinkWrap: true,
                                         itemCount: snapshot.data?.length??0,
                                         physics:
@@ -531,7 +534,7 @@ class _DashBoardState extends State<DashBoard> {
                                                         // height: 40,
                                                         child: Row(
                                                           children: [
-                                                            _isLoading? SpinKitCircle(color: Colors.green,):
+                                                            _isLoading? const SpinKitCircle(color: Colors.green,):
                                                             InkWell(
                                                               child: ClipRRect(
                                                                 borderRadius:
@@ -591,7 +594,7 @@ class _DashBoardState extends State<DashBoard> {
                                                               },
                                                             ),
                                                             //_isLoading? LoadUtil():
-                                                            _isLoadingB? SpinKitCircle(color: Colors.orange,):
+                                                            _isLoadingB? const SpinKitCircle(color: Colors.orange,):
                                                             InkWell(
                                                                 child:
                                                                     ClipRRect(
@@ -659,20 +662,24 @@ class _DashBoardState extends State<DashBoard> {
                                                     ],
                                                   ),
                                                 ),
-                                                const Divider(height: 1,),
+                                                Container(margin: EdgeInsets.only(top:5),
+                                                child:Divider( color: Colors.black12,),)
                                               ],
                                             ),
                                           );
                                         },
-                                        separatorBuilder: (BuildContext context,index)=>Column(children: [SizedBox(height: 4,),Divider(color: Colors.amber,height: 1,)]),
+
                                       );
-                                    } else {
-                                      return Center(
+                                    }
+                                    else {
+                                      return const Center(
                                         child: SpinKitCircle(color: Colors.green,),
                                       ) ;
                                     }
                                   }),
                               Align(
+                                // widthFactor: 2,
+                                heightFactor: 0.001,
                                   alignment: Alignment.bottomRight,
                                   child: InkWell(
                                     onTap: () {
@@ -682,8 +689,9 @@ class _DashBoardState extends State<DashBoard> {
                                                   const Accounts()));
                                     },
                                     child: Container(
-                                      margin: const EdgeInsets.only(
-                                        bottom: 9,
+
+                                      margin: const EdgeInsets.all(
+                                         9,
                                       ),
                                       child: Text(
                                         'View All Accounts   ',
@@ -732,7 +740,7 @@ class _DashBoardState extends State<DashBoard> {
                                 AsyncSnapshot<List<FrequentAccessedModule>>
                                     snapshot) {
                               debugPrint("Snapshot data${snapshot.data}");
-                              Widget child =  SpinKitCircle(color: Colors.green,);
+                              Widget child =  const SpinKitCircle(color: Colors.green,);
                               if (snapshot.hasData) {
                                 if (snapshot.data == []) {
                                   print('It has no data');
@@ -836,7 +844,7 @@ class _DashBoardState extends State<DashBoard> {
                       builder: (BuildContext context,
                           AsyncSnapshot<List<ModuleItem>> snapshot) {
                         Widget child=
-                        SpinKitCircle(color: Colors.green,);
+                        const SpinKitCircle(color: Colors.green,);
 
                         if (snapshot.hasData) {
 
