@@ -469,9 +469,9 @@ class _DashBoardState extends State<DashBoard> {
 
                                     if (snapshot.hasData) {
                                       return ListView.builder(
-                                        padding: EdgeInsets.only(bottom: 27),
+                                        padding: EdgeInsets.only(bottom: 1),
                                         shrinkWrap: true,
-                                        itemCount: snapshot.data?.length??0,
+                                        itemCount: snapshot.data?.length,
                                         physics:
                                             const NeverScrollableScrollPhysics(),
                                         itemBuilder:
@@ -679,7 +679,7 @@ class _DashBoardState extends State<DashBoard> {
                                   }),
                               Align(
                                 // widthFactor: 2,
-                                heightFactor: 0.001,
+                                heightFactor: 0.8,
                                   alignment: Alignment.bottomRight,
                                   child: InkWell(
                                     onTap: () {
